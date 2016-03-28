@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/reset.css" type="text/css">
+	<link rel="stylesheet" href="css/demo.css" type="text/css">
+	<link rel="stylesheet" href="css/swiper.min.css" type="text/css"></script>
+</head>
+<body>
+	<div id="wrap">
+		<header>
+			<div><a href="about.html"><img src="img/logo.png" alt=""></a><i>網易公开课</i></div>
+			<div><i class="icon_i"></i></div>
+			<div><i class="icon_i2"></i></div>
+		</header>
+		<ul>
+				<li class="on">首页</li>
+				<li>全部课程</li>
+				<li>我</li>
+			</ul>
+		<div class="main_cen">
+			<div class="box">
+				<div>
+					<div class="pic">
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide"><img src="img/ban.png" style="width:100%"></li>
+						</ul>
+						<div class="swiper-pagination"></div>
+					</div>
+					<section class="section1">
+						<i class="play"></i>
+						<p>小编推荐</p>
+					</section>
+					<section class="section2">
+						<div>
+							<img src="img/ban1.png" alt="">
+						</div>
+						<div>
+							<img src="img/ban2.png" alt="">
+						</div>
+					</section>
+					<section class="section2">
+						<div>
+							<img src="img/ban3.png" alt="">
+						</div>
+						<div>
+							<img src="img/ban4.png" alt="">
+						</div>
+					</section>
+					<section class="section2">
+						<div>
+							<img src="img/ban5.png" alt="">
+						</div>
+						<div>
+							<img src="img/ban6.png" alt="">
+						</div>
+					</section>
+				</div>
+				<div>
+					<p>类型</p>
+					<section class="section3">
+						<div>
+							<ol>
+								<li class="bg">全部</li>
+								<li>哲学</li>
+								<li>法律</li>
+								<li>管理</li>
+								<li>化学</li>
+								<li>计算机</li>
+							</ol>
+						</div>
+						<div>
+							<ol>
+								<li>纪录片</li>
+								<li>历史</li>
+								<li>媒体</li>
+								<li>技能</li>
+								<li>生物</li>
+							</ol>
+						</div>
+						<div>
+							<ol>
+								<li>文学</li>
+								<li>经济</li>
+								<li>伦理</li>
+								<li>数学</li>
+								<li>医学</li>
+							</ol>
+						</div>
+						<div>
+							<ol>
+								<li>艺术</li>
+								<li>社会</li>
+								<li>心理</li>
+								<li>物理</li>
+								<li>环境</li>
+							</ol>
+						</div>
+					</section>
+					<p>来源</p>
+					<section class="section3">
+						<div>
+							<ol>
+								<li class="bg">全部</li>
+							</ol>
+						</div>
+						<div>
+							<ol>
+								<li>国内</li>
+							</ol>
+						</div>
+						<div>
+							<ol>
+								<li>国外</li>
+							</ol>
+						</div>
+						<div>
+							<ol>
+								<li>TED</li>
+							</ol>
+						</div>
+					</section>
+					<section class="section4">
+						<div>
+							<ol>
+								<li class="bg">按最新</li>
+							</ol>
+						</div>
+						<div>
+							<ol>
+								<li>按最热</li>
+							</ol>
+						</div>
+					</section>
+					<section class="section5">
+						<div><img src="img/zuo.png" alt=""> </div>
+						<div>
+							<p>BBC:南太平洋</p>
+							<p>分类:环境,BBC,赏课,地球</p>
+							<p>集数：6 已译：4</p>
+						</div>
+					</section>
+				</div>
+				<div>
+					<section class="section6">
+						<div><img src="img/header.png" alt=""> </div>
+						<div>
+							<p>未登录网易通行证</p>
+							<i>&nbsp;&nbsp;已绑定0个账号</i>
+						</div>
+					</section>
+					<section class="section7">
+						<div>
+							<i class="icon_c"></i><p>我的收藏</p>
+						</div>
+						<div>
+							<i class="icon_c2"></i><p>我的下载</p>
+						</div>
+						<div>
+							<i class="icon_c3"></i><p>播放记录</0>
+						</div>
+						<div>
+							<i class="icon_c4"></i><p>设置</p>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript">
+		var swiper = new Swiper(".pic",{
+		pagination : '.swiper-pagination',
+		paginationClickable:true,
+		autoplay:2000,
+		autoplayDisableOnInteraction:true,
+		loop:true
+	});
+		//先声明索引值及长度
+	var index=0;
+	var num=$("ul li").length;
+	//添加tab事件
+	$("ul li").on("tap",function(){
+		index=$(this).index();
+		auto(index);
+	})
+	$(".box").swipeLeft(function(){
+		index++;
+		if(index>=num-1){index=num-1};
+		auto(index);
+	})
+	$(".box").swipeRight(function(){
+		index--;
+		if(index>=num+1){index=num+1};
+		auto(index);
+	})
+	//auto函数
+	function auto(index){
+		$("ul li").eq(index).addClass("on").siblings().removeClass("on");
+		var steep=-index*100;
+		//添加动画效果
+		$(".box").css({
+			"-webkit-transition":"left 0.5s",
+			"left":steep+"%"
+		})
+	}
+</script>
+</html>

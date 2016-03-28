@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/reset.css" type="text/css">
+	<link rel="stylesheet" href="css/about.css" type="text/css">
+</head>
+<body>
+	<div id="wrap">
+		<header>
+			<div><a href="demo.html"><b class="icon_i"></b></a><i>详情</i></div>
+			<div><img src="img/h.png" alt=""></div>
+			<div><img src="img/p2.png" alt=""></div>
+			<div><img src="img/p3.png" alt=""></div>
+			<div><img src="img/p4.png" alt=""></div>
+		</header>
+		<div class="pic"><img src="img/pic.png" alt=""></div>
+		<ul>
+				<li class="on">简介</li>
+				<li>目录</li>
+				<li>相关推荐</li>
+				<li>跟帖(83)</li>
+			</ul>
+		<div class="main_cen">
+			<div class="box">
+				<div>
+					<section class="section1">
+						<div>已翻译</div>
+						<div><img src="img/btn.png" alt=""></div>
+					</section>
+					<section class="section2">
+						<div>
+							<img src="img/p.png" alt="">
+							<i>[第一集]错误引导的艺术</i>
+						</div>
+					</section>
+					<section class="section2">
+						<div>
+							<i style="color:#666;font-weight:normal">全部翻译完成</i>
+						</div>
+					</section>
+				</div>
+				<div>
+					<section class="section1">
+						<div>已翻译</div>
+						<div><img src="img/btn.png" alt=""></div>
+					</section>
+					<section class="section2">
+						<div>
+							<img src="img/p.png" alt="">
+							<i>[第一集]错误引导的艺术</i>
+						</div>
+					</section>
+					<section class="section2">
+						<div>
+							<i style="color:#666;font-weight:normal">全部翻译完成</i>
+						</div>
+					</section>
+				</div>
+				<div>
+					<section class="section1">
+						<div>[第一集]跟帖(83)</div>
+						<div></div>
+					</section>
+					<section class="section1" style="border:none;margin-top:-10px;">
+						<div>热门跟帖</div>
+						<div></div>
+					</section>
+					<section class="section3">
+						<div>
+							<i>网易山东省青岛市网友… 2014-03-16 14:56:45</i>
+							<p>太神奇了~所以,我们的注意力要是被控制</p>
+							<p style="padding:0">是件可拍的事情~~~</p>
+						</div>
+					</section>
+				</div>
+				<div>
+					<section class="section1">
+						<div>[第一集]跟帖(83)</div>
+						<div></div>
+					</section>
+					<section class="section1" style="border:none;margin-top:-10px;">
+						<div>热门跟帖</div>
+						<div></div>
+					</section>
+					<section class="section3">
+						<div>
+							<i>网易山东省青岛市网友… 2014-03-16 14:56:45</i>
+							<p>太神奇了~所以,我们的注意力要是被控制</p>
+							<p style="padding:0">是件可拍的事情~~~</p>
+						</div>
+					</section>
+					<section class="section3">
+						<div>
+							<i>网易黑龙江省哈尔滨市… 2014-09-07 22:28:25</i>
+							<p>nice</p>
+							<p><a href="about2.html"><img src="img/x.png" alt="" class="about"></a></p>
+						</div>
+					</section>
+					<section class="section3">
+						<div>
+							<i>网易江西省南昌市网友… 2014-02-23 22:44:32</i>
+							<p>注意力被牵着走了，惠州德利达</p>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript">
+		//先声明索引值及长度
+	var index=0;
+	var num=$("ul li").length;
+	//添加tab事件
+	$("ul li").on("tap",function(){
+		index=$(this).index();
+		auto(index);
+	})
+	$(".box").swipeLeft(function(){
+		index++;
+		if(index>=num-1){index=num-1};
+		auto(index);
+	})
+	$(".box").swipeRight(function(){
+		index--;
+		if(index>=num+1){index=num+1};
+		auto(index);
+	})
+	//auto函数
+	function auto(index){
+		$("ul li").eq(index).addClass("on").siblings().removeClass("on");
+		var steep=-index*100;
+		//添加动画效果
+		$(".box").css({
+			"-webkit-transition":"left 0.5s",
+			"left":steep+"%"
+		})
+	}
+</script>
+</html>
